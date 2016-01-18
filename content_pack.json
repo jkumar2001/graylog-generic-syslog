@@ -1,0 +1,145 @@
+{
+  "extractors": [
+    {
+      "condition_type": "regex",
+      "condition_value": "([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})",
+      "converters": [],
+      "cursor_strategy": "copy",
+      "extractor_config": {
+        "regex_value": "^.*DST=([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})"
+      },
+      "extractor_type": "regex",
+      "order": 1,
+      "source_field": "message",
+      "target_field": "iptables_dst",
+      "title": "IPTables_Packet_Dropped_iptables_dst"
+    },
+    {
+      "condition_type": "regex",
+      "condition_value": "([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})",
+      "converters": [],
+      "cursor_strategy": "copy",
+      "extractor_config": {
+        "regex_value": "^.*SRC=([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})"
+      },
+      "extractor_type": "regex",
+      "order": 2,
+      "source_field": "message",
+      "target_field": "iptables_src",
+      "title": "IPTables_Packet_Dropped_iptables_src"
+    },
+    {
+      "condition_type": "regex",
+      "condition_value": "[a-zA-Z.]+.",
+      "converters": [],
+      "cursor_strategy": "copy",
+      "extractor_config": {
+        "regex_value": "Accepted password for (.+) from (.+) port"
+      },
+      "extractor_type": "regex",
+      "order": 0,
+      "source_field": "message",
+      "target_field": "ssh_login_username",
+      "title": "SSH_login_username"
+    },
+    {
+      "condition_type": "regex",
+      "condition_value": "[^0-9]",
+      "converters": [],
+      "cursor_strategy": "copy",
+      "extractor_config": {
+        "regex_value": "^.*DPT=([0-9]+)"
+      },
+      "extractor_type": "regex",
+      "order": 3,
+      "source_field": "message",
+      "target_field": "iptables_dport",
+      "title": "IPTables_Packet_Dropped_iptables_dport"
+    },
+    {
+      "condition_type": "regex",
+      "condition_value": "[a-zA-Z.]+.",
+      "converters": [],
+      "cursor_strategy": "copy",
+      "extractor_config": {
+        "regex_value": "Accepted publickey for (.+) from (.+)"
+      },
+      "extractor_type": "regex",
+      "order": 0,
+      "source_field": "message",
+      "target_field": "ssh_login_username",
+      "title": "SSH_login_username_publickey"
+    },
+    {
+      "condition_type": "regex",
+      "condition_value": "([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})",
+      "converters": [],
+      "cursor_strategy": "copy",
+      "extractor_config": {
+        "regex_value": "Failed password for .+ from (.+) port"
+      },
+      "extractor_type": "regex",
+      "order": 0,
+      "source_field": "message",
+      "target_field": "ssh_fail_source",
+      "title": "SSH_fail_source"
+    },
+    {
+      "condition_type": "regex",
+      "condition_value": "([^\\s]+)",
+      "converters": [],
+      "cursor_strategy": "copy",
+      "extractor_config": {
+        "regex_value": "Failed password for (.+) from "
+      },
+      "extractor_type": "regex",
+      "order": 0,
+      "source_field": "message",
+      "target_field": "ssh_fail_username",
+      "title": "SSH_fail_username"
+    },
+    {
+      "condition_type": "regex",
+      "condition_value": "([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})",
+      "converters": [],
+      "cursor_strategy": "copy",
+      "extractor_config": {
+        "regex_value": "([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})"
+      },
+      "extractor_type": "regex",
+      "order": 0,
+      "source_field": "message",
+      "target_field": "Generic_IP1",
+      "title": "Generic_IP_Extractor"
+    },
+    {
+      "condition_type": "regex",
+      "condition_value": "([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})",
+      "converters": [],
+      "cursor_strategy": "copy",
+      "extractor_config": {
+        "regex_value": "[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}.*?(([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}))"
+      },
+      "extractor_type": "regex",
+      "order": 0,
+      "source_field": "message",
+      "target_field": "Generic_IP2",
+      "title": "Generic_IP_Extractor"
+    },
+    {
+      "condition_type": "regex",
+      "condition_value": "([^\\s]+)",
+      "converters": [],
+      "cursor_strategy": "copy",
+      "extractor_config": {
+        "regex_value": "Invalid user (.+) from .+"
+      },
+      "extractor_type": "regex",
+      "order": 0,
+      "source_field": "message",
+      "target_field": "ssh_fail_invalid_username",
+      "title": "SSH_fail_invalid_username"
+    }
+  ],
+  "version": "1.1.6 (2e264c2)"
+}
